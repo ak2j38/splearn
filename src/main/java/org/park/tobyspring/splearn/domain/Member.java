@@ -1,7 +1,12 @@
 package org.park.tobyspring.splearn.domain;
 
 import java.util.Objects;
+import lombok.Getter;
+import lombok.ToString;
+import org.springframework.util.Assert;
 
+@Getter
+@ToString
 public class Member {
 
   private String email;
@@ -16,19 +21,15 @@ public class Member {
     this.status = MemberStatus.PENDING;
   }
 
-  public String getEmail() {
-    return email;
+  public void activate() {
+    Assert.state(status == MemberStatus.PENDING, "PENDING 상태가 아닙니다.");
+
+    this.status = MemberStatus.ACTVIE;
   }
 
-  public String getNickname() {
-    return nickname;
-  }
+  public void deactivate() {
+    Assert.state(status == MemberStatus.ACTVIE, "ACTVIE 상태가 아닙니다.");
 
-  public String getPasswordHash() {
-    return passwordHash;
-  }
-
-  public MemberStatus getStatus() {
-    return status;
+    this.status = MemberStatus.DEACTIVATED;
   }
 }
