@@ -2,6 +2,9 @@ package org.park.tobyspring.splearn.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.park.tobyspring.splearn.domain.MemberFixture.createPasswordEncoder;
+import static org.park.tobyspring.splearn.domain.MemberFixture.createRequest;
+import static org.park.tobyspring.splearn.domain.MemberFixture.createRequestWithEmail;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,19 +17,11 @@ class MemberTest {
 
   @BeforeEach
   void setUp() {
-    this.passwordEncoder = new PasswordEncoder() {
-      @Override
-      public String encode(String password) {
-        return password.toUpperCase();
-      }
-
-      @Override
-      public boolean matches(String password, String passwordHash) {
-        return encode(password).equals(passwordHash);
-      }
-    };
-    member = Member.register(new MemberRegisterRequest("woojin@splearn.app", "woojin", "hashedPassword"), passwordEncoder);
+    this.passwordEncoder = createPasswordEncoder();
+    member = Member.register(createRequest(), passwordEncoder);
   }
+
+
 
   @Test
   void registerMember() {
@@ -35,7 +30,7 @@ class MemberTest {
 
   @Test
   void constructorNullCheck() {
-    assertThatThrownBy(() -> Member.register(new MemberRegisterRequest(null, "woojin", "hashedPassword"), passwordEncoder))
+    assertThatThrownBy(() -> Member.register(createRequestWithEmail(null), passwordEncoder))
         .isInstanceOf(NullPointerException.class);
   }
 
@@ -115,7 +110,9 @@ class MemberTest {
   @Test
   void invalidEmail() {
     assertThatThrownBy(
-        () -> Member.register(new MemberRegisterRequest("invalidEmail", "woojin", "hashedPassword"), passwordEncoder)
+        () -> Member.register(createRequestWithEmail("invalidEmail"), passwordEncoder)
     ).isInstanceOf(IllegalArgumentException.class);
   }
+
+
 }
