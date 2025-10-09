@@ -2,13 +2,13 @@ package org.park.tobyspring.splearn.domain;
 
 import static java.util.Objects.requireNonNull;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,25 +18,25 @@ import org.hibernate.annotations.NaturalIdCache;
 import org.springframework.util.Assert;
 
 @Entity
+@Table(name = "MEMBER", uniqueConstraints = @UniqueConstraint(name = "UK_MEMBER_EMAIL_ADDRESS", columnNames = "email_address"))
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @NaturalIdCache
-public class Member {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+public class Member extends AbtractEntity {
 
   @Embedded
   @NaturalId
   private Email email;
 
+  @Column(length = 100, nullable = false)
   private String nickname;
 
+  @Column(length = 200, nullable = false)
   private String passwordHash;
 
   @Enumerated(EnumType.STRING)
+  @Column(length = 50, nullable = false)
   private MemberStatus status;
 
 
