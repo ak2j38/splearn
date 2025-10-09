@@ -39,6 +39,8 @@ public class Member extends AbtractEntity {
   @Column(length = 50, nullable = false)
   private MemberStatus status;
 
+  private MemberDetail detail;
+
 
   public static Member register(MemberRegisterRequest request, PasswordEncoder passwordEncoder) {
     Member member = new Member();
