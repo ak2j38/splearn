@@ -2,9 +2,11 @@ package org.park.tobyspring.splearn.adapter.integration;
 
 import org.park.tobyspring.splearn.application.required.EmailSender;
 import org.park.tobyspring.splearn.domain.Email;
+import org.springframework.context.annotation.Fallback;
 import org.springframework.stereotype.Component;
 
 @Component
+@Fallback
 public class DummyEmailSender implements EmailSender {
 
   @Override
