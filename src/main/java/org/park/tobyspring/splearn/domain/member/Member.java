@@ -85,6 +85,8 @@ public class Member extends AbtractEntity {
   }
 
   public void updateInfo(MemberInfoUpdateRquest request) {
+    Assert.state(getStatus() == MemberStatus.ACTVIE, "활성화된 회원만 정보 수정이 가능합니다.");
+
     this.nickname = Objects.requireNonNull(request.nickname());
     this.detail.updateProfile(request);
   }

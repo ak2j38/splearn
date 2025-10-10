@@ -12,7 +12,7 @@ public record Profile(
   private static final Pattern PROFILE_ADDRESS_PATTERN = Pattern.compile("[a-z0-9]+");
 
   public Profile {
-    if (!PROFILE_ADDRESS_PATTERN.matcher(address).matches()) {
+    if (address == null || (!address.isEmpty() && !PROFILE_ADDRESS_PATTERN.matcher(address).matches())) {
       throw new IllegalArgumentException("프로필 주소는 영문 소문자와 숫자만 가능합니다.");
     }
 
