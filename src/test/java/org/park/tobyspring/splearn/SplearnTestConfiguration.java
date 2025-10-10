@@ -1,8 +1,8 @@
 package org.park.tobyspring.splearn;
 
-import org.park.tobyspring.splearn.application.required.EmailSender;
-import org.park.tobyspring.splearn.domain.MemberFixture;
-import org.park.tobyspring.splearn.domain.PasswordEncoder;
+import org.park.tobyspring.splearn.application.member.required.EmailSender;
+import org.park.tobyspring.splearn.domain.member.MemberFixture;
+import org.park.tobyspring.splearn.domain.member.PasswordEncoder;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 

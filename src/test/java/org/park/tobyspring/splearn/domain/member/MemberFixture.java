@@ -1,4 +1,4 @@
-package org.park.tobyspring.splearn.domain;
+package org.park.tobyspring.splearn.domain.member;
 
 public class MemberFixture {
 

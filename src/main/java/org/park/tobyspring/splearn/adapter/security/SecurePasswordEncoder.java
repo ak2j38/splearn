@@ -1,6 +1,6 @@
 package org.park.tobyspring.splearn.adapter.security;
 
-import org.park.tobyspring.splearn.domain.PasswordEncoder;
+import org.park.tobyspring.splearn.domain.member.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

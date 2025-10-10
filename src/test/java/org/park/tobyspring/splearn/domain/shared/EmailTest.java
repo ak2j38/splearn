@@ -1,6 +1,4 @@
-package org.park.tobyspring.splearn.domain;
-
-import static org.junit.jupiter.api.Assertions.*;
+package org.park.tobyspring.splearn.domain.shared;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,11 @@
-package org.park.tobyspring.splearn.application.required;
+package org.park.tobyspring.splearn.application.member.required;
 
-import org.park.tobyspring.splearn.domain.Email;
+import org.park.tobyspring.splearn.domain.shared.Email;
 
 /**
  * 이메일을 발송한다
  */
 public interface EmailSender {
+
   void send(Email email, String subject, String body);
 }

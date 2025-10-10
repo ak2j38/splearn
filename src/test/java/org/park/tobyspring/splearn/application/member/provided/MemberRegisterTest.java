@@ -1,4 +1,4 @@
-package org.park.tobyspring.splearn.application.provided;
+package org.park.tobyspring.splearn.application.member.provided;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -7,11 +7,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 import org.park.tobyspring.splearn.SplearnTestConfiguration;
-import org.park.tobyspring.splearn.domain.DuplicateEmailException;
-import org.park.tobyspring.splearn.domain.Member;
-import org.park.tobyspring.splearn.domain.MemberFixture;
-import org.park.tobyspring.splearn.domain.MemberRegisterRequest;
-import org.park.tobyspring.splearn.domain.MemberStatus;
+import org.park.tobyspring.splearn.domain.member.DuplicateEmailException;
+import org.park.tobyspring.splearn.domain.member.Member;
+import org.park.tobyspring.splearn.domain.member.MemberFixture;
+import org.park.tobyspring.splearn.domain.member.MemberRegisterRequest;
+import org.park.tobyspring.splearn.domain.member.MemberStatus;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;

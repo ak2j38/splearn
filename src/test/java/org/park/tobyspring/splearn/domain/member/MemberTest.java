@@ -1,10 +1,10 @@
-package org.park.tobyspring.splearn.domain;
+package org.park.tobyspring.splearn.domain.member;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.park.tobyspring.splearn.domain.MemberFixture.createPasswordEncoder;
-import static org.park.tobyspring.splearn.domain.MemberFixture.createRequest;
-import static org.park.tobyspring.splearn.domain.MemberFixture.createRequestWithEmail;
+import static org.park.tobyspring.splearn.domain.member.MemberFixture.createPasswordEncoder;
+import static org.park.tobyspring.splearn.domain.member.MemberFixture.createRequest;
+import static org.park.tobyspring.splearn.domain.member.MemberFixture.createRequestWithEmail;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,10 +22,10 @@ class MemberTest {
   }
 
 
-
   @Test
   void registerMember() {
     Assertions.assertThat(member.getStatus()).isEqualTo(MemberStatus.PENDING);
+    assertThat(member.getDetail().getRegisteredAt()).isNotNull();
   }
 
   @Test
@@ -113,6 +113,4 @@ class MemberTest {
         () -> Member.register(createRequestWithEmail("invalidEmail"), passwordEncoder)
     ).isInstanceOf(IllegalArgumentException.class);
   }
-
-
 }

@@ -1,15 +1,15 @@
-package org.park.tobyspring.splearn.application;
+package org.park.tobyspring.splearn.application.member;
 
 import lombok.RequiredArgsConstructor;
-import org.park.tobyspring.splearn.application.provided.MemberFinder;
-import org.park.tobyspring.splearn.application.provided.MemberRegister;
-import org.park.tobyspring.splearn.application.required.EmailSender;
-import org.park.tobyspring.splearn.application.required.MemberRepository;
-import org.park.tobyspring.splearn.domain.DuplicateEmailException;
-import org.park.tobyspring.splearn.domain.Email;
-import org.park.tobyspring.splearn.domain.Member;
-import org.park.tobyspring.splearn.domain.MemberRegisterRequest;
-import org.park.tobyspring.splearn.domain.PasswordEncoder;
+import org.park.tobyspring.splearn.application.member.provided.MemberFinder;
+import org.park.tobyspring.splearn.application.member.provided.MemberRegister;
+import org.park.tobyspring.splearn.application.member.required.EmailSender;
+import org.park.tobyspring.splearn.application.member.required.MemberRepository;
+import org.park.tobyspring.splearn.domain.member.DuplicateEmailException;
+import org.park.tobyspring.splearn.domain.member.Member;
+import org.park.tobyspring.splearn.domain.member.MemberRegisterRequest;
+import org.park.tobyspring.splearn.domain.member.PasswordEncoder;
+import org.park.tobyspring.splearn.domain.shared.Email;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;

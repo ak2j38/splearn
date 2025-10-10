@@ -1,7 +1,7 @@
 package org.park.tobyspring.splearn.adapter.integration;
 
-import org.park.tobyspring.splearn.application.required.EmailSender;
-import org.park.tobyspring.splearn.domain.Email;
+import org.park.tobyspring.splearn.application.member.required.EmailSender;
+import org.park.tobyspring.splearn.domain.shared.Email;
 import org.springframework.context.annotation.Fallback;
 import org.springframework.stereotype.Component;
 
