@@ -7,6 +7,7 @@ import org.park.tobyspring.splearn.application.member.required.EmailSender;
 import org.park.tobyspring.splearn.application.member.required.MemberRepository;
 import org.park.tobyspring.splearn.domain.member.DuplicateEmailException;
 import org.park.tobyspring.splearn.domain.member.Member;
+import org.park.tobyspring.splearn.domain.member.MemberInfoUpdateRquest;
 import org.park.tobyspring.splearn.domain.member.MemberRegisterRequest;
 import org.park.tobyspring.splearn.domain.member.PasswordEncoder;
 import org.park.tobyspring.splearn.domain.shared.Email;
@@ -43,6 +44,24 @@ public class MemberModifyService implements MemberRegister {
     Member member = memberFinder.find(memberId);
 
     member.activate();
+
+    return memberRepository.save(member);
+  }
+
+  @Override
+  public Member deactivate(Long memberId) {
+    Member member = memberFinder.find(memberId);
+
+    member.deactivate();
+
+    return memberRepository.save(member);
+  }
+
+  @Override
+  public Member updateInfo(Long memberId, MemberInfoUpdateRquest request) {
+    Member member = memberFinder.find(memberId);
+
+    member.updateInfo(request);
 
     return memberRepository.save(member);
   }

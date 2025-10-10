@@ -1,5 +1,6 @@
 package org.park.tobyspring.splearn.domain.member;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import java.time.LocalDateTime;
@@ -20,8 +21,10 @@ public class MemberDetail extends AbtractEntity {
   @Embedded
   private Profile profile;
 
+  @Column(columnDefinition = "TEXT")
   private String introduction;
 
+  @Column(nullable = false)
   private LocalDateTime registeredAt;
 
   private LocalDateTime activatedAt;
