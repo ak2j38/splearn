@@ -1,5 +1,7 @@
 package org.park.tobyspring.splearn.domain.member;
 
+import org.springframework.test.util.ReflectionTestUtils;
+
 public class MemberFixture {
 
   public static MemberRegisterRequest createRequestWithEmail(String email) {
@@ -22,5 +24,12 @@ public class MemberFixture {
         return encode(password).equals(passwordHash);
       }
     };
+  }
+
+  public static Member createMember(Long id) {
+    Member member = Member.register(createRequest(), createPasswordEncoder());
+    ReflectionTestUtils.setField(member, "id", id);
+
+    return member;
   }
 }
