@@ -4,7 +4,7 @@ import org.park.tobyspring.splearn.domain.member.Member;
 
 public record MemberRegisterResponse(
     Long memberId,
-    String emailAddress
+    String email
 ) {
 
   public static MemberRegisterResponse of(Member member) {
